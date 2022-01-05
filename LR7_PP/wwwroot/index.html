@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <script src="script.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Список отелей</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body onload="InitialFunction();">
     <h2>Список отелей</h2>
     <form name="hotelForm">
         <input type="hidden" name="id" value="0" />
@@ -17,6 +18,10 @@
         <div class="form-group col-md-5">
             <label for="countOfStars">Количество звезд:</label>
             <input class="form-control" name="countOfStars" type="number" />
+        </div>
+        <div class="form-group col-md-5">
+            <label for="countryCode">Код страны:</label>
+            <input class="form-control" name="countryCode" />
         </div>
         <div class="panel-body">
             <button type="submit" id="submit" class="btn btn-primary">Сохранить</button>
@@ -29,9 +34,8 @@
         </tbody>
     </table>
     <div>2022 Заид Мингалиев</div>
-
-    <script>
-        // Получение всех пользователей
+    <!--<script>
+        // Получение всех отелей
         async function GetHotel() {
             // отправляет запрос и получаем ответ
             const response = await fetch("/api/hotels", {
@@ -115,24 +119,18 @@
         }
         // создание строки для таблицы
         function row(hotel) {
- 
             const tr = document.createElement("tr");
             tr.setAttribute("data-rowid", hotel.id);
- 
             const idTd = document.createElement("td");
             idTd.append(hotel.id);
             tr.append(idTd);
- 
             const nameTd = document.createElement("td");
             nameTd.append(hotel.name);
             tr.append(nameTd);
- 
             const ageTd = document.createElement("td");
             ageTd.append(hotel.countOfStars);
             tr.append(ageTd);
-             
             const linksTd = document.createElement("td");
- 
             const editLink = document.createElement("a");
             editLink.setAttribute("data-id", hotel.id);
             editLink.setAttribute("style", "cursor:pointer;padding:15px;");
@@ -142,7 +140,6 @@
                 GetHotelById(hotel.id);
             });
             linksTd.append(editLink);
- 
             const removeLink = document.createElement("a");
             removeLink.setAttribute("data-id", hotel.id);
             removeLink.setAttribute("style", "cursor:pointer;padding:15px;");
@@ -151,10 +148,8 @@
                 e.preventDefault();
                 DeleteHotel(hotel.id);
             });
- 
             linksTd.append(removeLink);
             tr.appendChild(linksTd);
- 
             return tr;
         }
         // сброс значений формы
@@ -174,9 +169,7 @@
             else
                 EditHotel(id, name, countOfStars);
         });
-
         GetHotel();
- 
-    </script>
+    </script>-->
 </body>
 </html>
