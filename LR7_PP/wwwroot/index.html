@@ -96,6 +96,17 @@
                 document.querySelector("tr[data-rowid='" + hotel.id + "']").replaceWith(row(hotel));
             }
         }
+        // Удаление пользователя
+        async function DeleteHotel(id) {
+            const response = await fetch("/api/hotels/" + id, {
+                method: "DELETE",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const hotel = await response.json();
+                document.querySelector("tr[data-rowid='" + hotel.id + "']").remove();
+            }
+        }
         // сброс формы
         function reset() {
             const form = document.forms["hotelForm"];
@@ -138,7 +149,7 @@
             removeLink.append("Удалить");
             removeLink.addEventListener("click", e => {
                 e.preventDefault();
-                DeleteUser(hotel.id);
+                DeleteHotel(hotel.id);
             });
  
             linksTd.append(removeLink);
