@@ -18,12 +18,17 @@ namespace LR7_PP
             {
                 var sb = new SqlConnectionStringBuilder
                 {
-                    DataSource = "LAPTOP-2BI2ASH4",
-                    // Подключение будет с проверкой подлинности пользователя Windows
-                    IntegratedSecurity = true,
-                    // Название целевой базы данных.
-                    InitialCatalog = "ToursDB"
-                };
+                    //DataSource = "LAPTOP-2BI2ASH4",
+                    //// Подключение будет с проверкой подлинности пользователя Windows
+                    //IntegratedSecurity = true,
+                    //// Название целевой базы данных.
+                    //InitialCatalog = "ToursDB"
+                    DataSource = "tcp:lr7-ppdbserver.database.windows.net,1433",
+                    InitialCatalog = "LR7_PP_db",
+                    IntegratedSecurity = false,
+                    UserID = "zaid",
+                    Password = "pil1r6a5!"
+            };
                 return sb.ConnectionString;
             }
         }
