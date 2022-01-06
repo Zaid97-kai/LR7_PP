@@ -23,8 +23,9 @@ namespace LR7_PP
                     //IntegratedSecurity = true,
                     //// Название целевой базы данных.
                     //InitialCatalog = "ToursDB"
-                    DataSource = "tcp:lr7-ppdbserver.database.windows.net,1433",
-                    InitialCatalog = "LR7_PP_db",
+
+                    DataSource = "tcp:testserverlrpp7.database.windows.net,1433",
+                    InitialCatalog = "Hotel",
                     IntegratedSecurity = false,
                     UserID = "zaid",
                     Password = "pil1r6a5!"
